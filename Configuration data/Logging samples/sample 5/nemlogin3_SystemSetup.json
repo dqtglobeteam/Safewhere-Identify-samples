@@ -1,0 +1,16 @@
+{
+  "auditUserRequestLogToSqlStore": false,
+  "auditUserRequestLogToWindowsEventStore": false,
+  "auditUserRequestLogToCommonLoggingStore": false,
+  "logLevelRuntime": "Off",
+  "logLevelAdmin": "Off",
+  "enableWcfTracingRuntime": false,
+  "enableWcfTracingAdmin": false,
+  "enableRestApiVerboseErrorToClient": false,
+  "enableIdentifyStsVerboseErrorToClient": false,
+  "enableAuditLog": false,
+  "enableSecurityLog": false,
+  "enableBillingLog": false,
+  "enableRevisionLog": false,
+  "enableAnalysisLog": false
+}
