@@ -1,0 +1,34 @@
+{% extends "SiteLayout" %}
+
+{% block "titleheader"  %}
+{{Resources.OAuth2Resources.OpenIdConnectLogoutConfirm | Escape }}
+{% endblock %}
+
+{% block "content" %}
+<div class="nav-box-50">
+    <div class="form-top">
+        <div class="form-top-left text-left">
+            <h4>
+                {{Resources.OAuth2Resources.OpenIdConnectLogoutConfirm | Escape }}
+            </h4>
+        </div>
+    </div>
+    <div class="form-bottom">
+        <form role="form" method="post" class="login-form" action="/runtime/openidconnect/logout.idp">
+            <input type="hidden" name="id_token_hint" value="{{Model.IdTokenHint | Escape}}" />
+			<input type="hidden" name="client_id" value="{{Model.ClientId | Escape}}" />
+			<input type="hidden" name="post_logout_redirect_uri" value="{{Model.PostLogoutRedirectUri | Escape}}" />
+			<input type="hidden" name="state" value="{{Model.State | Escape}}" />
+			<input type="hidden" name="c" value="{{Model.ConfirmKey | Escape}}" />
+            {% assign var0 = '{0\}' %}
+            <div class="form-group">
+                <label class="help-text">{{Resources.OAuth2Resources.OpenIdConnectLogoutConfirmMessage| Replace: var0, Model.ConnectionName | Escape}}</label>
+            </div>
+            <div class="form-bottom" style="text-align:right;">
+                <button type="submit" class="btn btn-default" style="width:100px;">{{Resources.OAuth2Resources.OpenIdConnectLogoutConfirm_Yes | Escape}}</button>
+                <a href="{{Model.ErrorPageUrl}}?error=interaction_required&amp;error_description=Logout+request+is+cancelled+by+user." class="btn btn-default" style="width:100px;">{{Resources.OAuth2Resources.OpenIdConnectLogoutConfirm_No | Escape}}</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} 
